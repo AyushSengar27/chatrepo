@@ -79,7 +79,5 @@ pytest tests.py
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
-## Acknowledgments
 
-* Thanks to everyone who has contributed to the development of this application.
 
