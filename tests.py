@@ -3,25 +3,15 @@ import openai
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-
-
 from langchain import PromptTemplate
 from langchain.chains import RetrievalQA
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import Pinecone 
 from langchain_pinecone import PineconeVectorStore
 import pinecone
 from langchain.chat_models import ChatOpenAI
-from flask import Flask, render_template, jsonify, request
-from langchain.document_loaders import PyPDFLoader, DirectoryLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.prompts import PromptTemplate
-from langchain.llms import CTransformers
-from langchain.document_loaders import CSVLoader
 from dotenv import load_dotenv
 from src.prompt import *
 from src.helper import *
-import os
 from langchain.schema import Document, BaseRetriever
 from typing import List, Any
 from pydantic import BaseModel, Field
