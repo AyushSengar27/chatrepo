@@ -67,6 +67,7 @@ pytest tests.py
 * [Flask](http://flask.pocoo.org/) - The web framework used
 * [Pinecone](https://www.pinecone.io/) - Vector database for vector search applications
 * [OpenAI](https://www.openai.com/) - AI research and deployment company
+* [LangChain](https://www.langchain.com/) - Tool for building language applications
 
 ## Author
 

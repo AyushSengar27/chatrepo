@@ -12,14 +12,6 @@ def load_csv(file_path):
     documents = loader.load()
     return documents
 
-#Extract data from the PDF
-# def load_csv(path):
-#     filepath = Path(path)
-#     loader = CSVLoader(file_path=filepath)
-    
-#     documents = loader.load()
-
-#     return documents
 
 
 

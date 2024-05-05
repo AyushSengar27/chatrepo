@@ -17,6 +17,7 @@ from typing import List, Any
 from pydantic import BaseModel, Field
 from openai import OpenAI
 
+# Define a simple document retriever class to fetch relevant documents based on a query
 class SimpleRetriever(BaseRetriever):
     vector_store: Any  # Specify the correct type if known, else use `Any`
     k: int = Field(default=5, description="The number of documents to retrieve")
@@ -46,20 +47,22 @@ index_name=index_name
 
 #Loading the index
 docsearch=PineconeVectorStore.from_existing_index(index_name=index_name,embedding=embeddings)
+# Initialize the retriever with the Pinecone vector store and a parameter k
 simple_retriever = SimpleRetriever(vector_store=docsearch, k=10)
 
-
+# Define the prompt template and chain type arguments for the retrieval QA model
 PROMPT=PromptTemplate(template=prompt_template, input_variables=["context", "question"])
 
 chain_type_kwargs={"prompt": PROMPT}
 
+# Initialize the Chat model using OpenAI with specified model parameters
 llm=ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
     model_name='gpt-4',
     temperature=0.8
 )
 
-
+# Create a RetrievalQA object which uses the LangChain library for a question-answering setup
 qa = RetrievalQA.from_chain_type(  
     llm=llm,  
     chain_type="stuff",  
@@ -73,7 +76,7 @@ Actual Response: {actual_response}
 ---
 (Answer with 'true' or 'false') Does the actual response convey similar message as expected response? 
 """
-
+# Define a function to evaluate the response against an expected answer
 def query_and_validate(question: str, expected_response: str):
     result= qa({"query": question})
     response_text = str(result["result"])

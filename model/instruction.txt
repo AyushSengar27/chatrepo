@@ -1,7 +1,7 @@
-## Download the Llama 2 Model:
-
-llama-2-7b-chat.ggmlv3.q4_0.bin
+Set up the necessary environment variables in the `.env` file within the project directory as follows:
 
 
-## From the following link:
-https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
+PINECONE_API_KEY=Your_Pinecone_API_key_here
+PINECONE_INDEX=Your_Pinecone_index_name_here
+INDEX_DIMENSIONS=Dimensions_for_your_Pinecone_index_here
+OPENAI_API_KEY=Your_OpenAI_API_key_here
